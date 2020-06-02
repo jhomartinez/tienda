@@ -12,24 +12,22 @@
     if (sesion.getAttribute("usuario") == null) {
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
-
-        Persona usuario = (Persona) sesion.getAttribute("usuario");
         ResultSet resultado = DiaNoLaboral.getLista(null, null);
         String lista = "";
         if (resultado != null) {
             while (resultado.next()) {
                 lista += "<tr>";
                 //lista += "<td>" + resultado.getString("nit") + "</td>";
-                if (resultado.getString("mes").equals("01")){
+                if (resultado.getString("mes").equals("01") || resultado.getString("mes").equals("1")) {
                     lista += "<td>" + "Enero" + "</td>";
-               
-                } else if (resultado.getString("mes").equals("02")){
-                lista += "<td>" + "Febrero" + "</td>";
-                
-                }else  if (resultado.getString("mes").equals("03")){
-                lista += "<td>" + "Marzo" + "</td>";
+
+                } else if (resultado.getString("mes").equals("02") || resultado.getString("mes").equals("2")) {
+                    lista += "<td>" + "Febrero" + "</td>";
+
+                } else if (resultado.getString("mes").equals("03")) {
+                    lista += "<td>" + "Marzo" + "</td>";
                 }
-                
+
                 /*if (resultado.getString("mes").equals("04"));
                 lista += "<td>" + "Abril" + "</td>";
                 if (resultado.getString("mes").equals("05"));
@@ -55,8 +53,7 @@
                 lista += "<a href='principal.jsp?CONTENIDO=formularioDiaNoLaboral.jsp&accion=Eliminar&id=" + resultado.getString("id") + " '><img src='image/icon_delete.png' style='width: 30px; height: 30px;'/></a> ";
                 lista += "</td>";
                 lista += "</tr>";
-                
-                
+
             }
         }
 %>
@@ -65,7 +62,7 @@
     <a href="principal.jsp?CONTENIDO=formularioDiaNoLaboral.jsp" class="btn btn-primary mb-3">Crear Dia no Laboral</a>
     <table border="1">
         <tr>
-           <th>Mes</th><th>Dia</th><th>Motivo Especial</th><th>Opciones</th>
+            <th>Mes</th><th>Dia</th><th>Motivo Especial</th><th>Opciones</th>
         </tr>
         <%=lista%>
     </table>

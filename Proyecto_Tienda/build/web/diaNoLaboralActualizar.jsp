@@ -4,6 +4,7 @@
     Author     : root
 --%>
 
+<%@page import="clases.Establecimiento"%>
 <%@page import="clases.DiaNoLaboral"%>
 <%@page import="clases.Persona"%>
 <%
@@ -11,14 +12,14 @@
     if (sesion.getAttribute("usuario") == null) {
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
-        Persona usuario = (Persona) sesion.getAttribute("usuario");
         DiaNoLaboral diaNoLaboral = new DiaNoLaboral();
+        Establecimiento e = (Establecimiento) sesion.getAttribute("tienda");
         switch (request.getParameter("accion")) {
         case "Adicionar":
-         
-        diaNoLaboral.setNit(request.getParameter("nit"));
-        diaNoLaboral.setDia(request.getParameter("dia"));
-        diaNoLaboral.setMes(request.getParameter("mes"));
+         String fecha = request.getParameter("fecha");
+        diaNoLaboral.setNit(e.getNit());
+        diaNoLaboral.setDia(fecha.substring(8, 10));
+        diaNoLaboral.setMes(fecha.substring(5, 7));
         diaNoLaboral.setNombre(request.getParameter("nombre"));
         diaNoLaboral.guardar();
         break;  

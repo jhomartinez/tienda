@@ -12,7 +12,7 @@
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
         Persona usuario = (Persona) sesion.getAttribute("usuario");
-        String accion = "Adicionar ";
+        String accion = "Adicionar";
         DiaNoLaboral diaNoLaboral = new DiaNoLaboral();
         if (request.getParameter("id") == null) {
             //no llega id entonces va a adicionar
@@ -26,31 +26,17 @@
 <h3><%= accion.toUpperCase()%>DIA NO LABORAL</h3><br>
 <form name="formulario" method="post" action="principal.jsp?CONTENIDO=diaNoLaboralActualizar.jsp">
 
-    <div class="form-group">
-       <label for="Seleccione Mes">Mes
-        <select class="custom-select" id="mes" name="mes">
-            <option selected value="0">Seleccionar una opción</option>
-            <option value="01">Enero</option>
-            <option value="02">Febrero</option>
-            <option value="03">Marzo</option>
-            <option value="04">Abril</option>
-            <option value="05">Mayo</option>
-            <option value="06">Junio</option>
-            <option value="07">Julio</option>
-            <option value="08">Agosto</option>
-            <option value="09">Septiembre</option>
-            <option value="10">Octubre</option>
-            <option value="11">Noviembre</option>
-            <option value="12">Diciembre</option>
-        </select>
-        </label>
-  
-    <div class="col-md-3 mb-3">
-        <label for="dia">Dia</label>
-        <input type="text" class="form-control" nombre="dia" required>
-        <label for="nombre">Motivo Especial</label>
-        <input type="text" class="form-control" id="motivoEspecial">
+    <div class="form-group row">
+        <label for="fecha" class="col-2 col-form-label">Fecha</label>
+        <div class="col-10">
+            <input class="form-control" type="date" id="fecha" name="fecha">
+        </div>
     </div>
+    <div class="form-group row">
+        <label for="motivo" class="col-2 col-form-label">Motivo Especial</label>
+        <div class="col-10">
+            <input class="form-control" type="text" id="motivo" name="nombre">
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary" name="accion" value="<%=accion%>"><%=accion%></button>
@@ -61,6 +47,6 @@
 
 
 
-    <%
-        }
-    %>
+<%
+    }
+%>
