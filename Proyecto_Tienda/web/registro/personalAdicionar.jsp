@@ -61,6 +61,6 @@
     }
 
 %>
-<!--<script type="text/javascript">
-    window.location = "principal.jsp?CONTENIDO=personal.jsp";
-</script>-->
+<script type="text/javascript">
+    window.location = "principal.jsp?CONTENIDO=listaPersonal.jsp";
+</script>

@@ -27,7 +27,7 @@
 <form name="formulario" method="post" action="principal.jsp?CONTENIDO=diaNoLaboralAcualizar.jsp">
 
     <div class="form-group">
-        <label for="Seleccione Mes">Mes</label>
+       <%-- <label for="Seleccione Mes">Mes</label>
         <select class="custom-select" id="mes" name="mes">
             <option selected value="0">Seleccionar una opción</option>
             <option value="01" >Enero</option>
@@ -43,11 +43,11 @@
             <option value="11">Noviembre</option>
             <option value="12">Diciembre</option>
         </select>
-        </label>
+        </label>--%>
     </div>
     <div class="col-md-3 mb-3">
         <label for="dia">Fecha</label>
-        <input type="date" class="form-control" id="fecha" required>
+        <input type="date" class="form-control" nombre="fecha" required>
         <label for="nombre">Motivo Especial</label>
         <input type="text" class="form-control" id="motivoEspecial">
     </div>

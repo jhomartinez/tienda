@@ -21,12 +21,12 @@
                         + "Establecimiento"
                         + "</a>"
                         + "<div class='dropdown-menu' aria-labelledby='navbarDropdown'>"
-                        + "<a class='dropdown-item' href='principal.jsp?CONTENIDO=establecimiento.jsp'>Datos del Establecimiento</a>"
+                        + "<a class='dropdown-item' href='principal.jsp?CONTENIDO=registro/establecimiento.jsp'>Datos del Establecimiento</a>"
                         + "<a class='dropdown-item' href='principal.jsp?CONTENIDO=horario.jsp'>Horario De Atencion</a>"
                         + "<a class='dropdown-item' href='principal.jsp?CONTENIDO=diaNoLaboral.jsp'>Dias No Laborales</a>"
                         + "</div>"
                         + "</li> ";
-                 menu += "<li class='nav-link dropdown'>"
+                /* menu += "<li class='nav-link dropdown'>"
                         + "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"
                         + "Usuarios"
                         + "</a>"
@@ -35,9 +35,9 @@
                         + "<a class='dropdown-item'href='principal.jsp?CONTENIDO=personal.jsp?tipo=V' title='Datos Personal'>Vendedor</a>"
                         + "<a class='dropdown-item' href='principal.jsp?CONTENIDO=personal.jsp?tipo=C' title='Datos Personal'>Cliente</a>"
                         + "</div>"
-                        + "</li> ";
-                
-                menu += "<li class='nav-link'><a class='nav-link' href='principal.jsp?CONTENIDO=producto.jsp' title='Datos Personal'>Productos</a></li>";
+                        + "</li> ";*/
+                menu += "<li class='nav-link'><a class='nav-link' href='principal.jsp?CONTENIDO=listaPersonal.jsp' title='Datos Personal'>Personal</a></li>";
+                menu += "<li class='nav-link'><a class='nav-link' href='principal.jsp?CONTENIDO=producto.jsp' title='Productol'>Productos</a></li>";
                 menu += "<li class='nav-link'><a class='nav-link' href='principal.jsp?CONTENIDO=compra.jsp' title='Datos Personal'>Compras</a></li>";
                 menu += "<li class='nav-link'><a class='nav-link' href='#' title='Datos Personal'>Ventas</a></li>";
                 menu += "<li class='nav-link'><a class='nav-link' href='#' title='Datos Personal'>Pedidos</a></li>";
@@ -110,10 +110,10 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-sm-10">
+                <div class="col-sm-11">
                     <div id="contenido" class="bg-secondary"><jsp:include page='<%=request.getParameter("CONTENIDO")%>' flush="true" /></div>
                 </div>
-                <div class="col-sm-2" >
+                <div class="col-sm-1" >
                     <div id="panel"class="bg-secondary">Panel</div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
         System.out.println("accion[" + request.getParameter("accion") + "]");
-        Persona USUARIO = (Persona) sesion.getAttribute("usuario");
+        Persona usuario = (Persona) sesion.getAttribute("usuario");
         Horario horario = new Horario();
         Establecimiento tienda = (Establecimiento) sesion.getAttribute("tienda");
         System.out.println("diaLunes:[" + request.getParameter("diaLunes") + "]");

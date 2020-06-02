@@ -247,14 +247,14 @@ public class Producto {
     }
 
     public boolean guardar() {
-        String cadenaSQL = "insert into Producto(codigo,nombre,descripcion,valorUnitarioCompra,valorUnitarioVenta,stock,stockMinimo,StockMaximo,codigoDeBarras,productosEnDescuento,productosPerecederos,foto)values('" + this.codigo
-                + "','" + this.nombre + "','" + this.descripcion + "','" + this.valorUnitarioCompra + "','" + this.valorUnitarioVenta + "','" + this.foto + "','" + this.stock + "','" + this.stockMinimo + "','" + this.stockMaximo + "','" + this.codigoDeBarras + "','" + this.productosEnDescuento + "','" + this.productosPerecederos + "')";
+        String cadenaSQL = "insert into Producto(codigo,nombre,descripcion,valorUnitarioCompra,valorUnitarioVenta,stock,stockMinimo,StockMaximo,codigoDeBarras,productosEnDescuento,productosPerecederos,foto)values(" + this.codigo
+                + ",'" + this.nombre + "','" + this.descripcion + "'," + this.valorUnitarioCompra + "," + this.valorUnitarioVenta  + "," + this.stock + "," + this.stockMinimo + "," + this.stockMaximo + ",'" + this.codigoDeBarras + "','" + this.productosEnDescuento + "','" + this.productosPerecederos + "','" + this.foto+"')";
         return ConectorBD.ejecutarQuery(cadenaSQL);
     }
 
     public boolean modificar() {
         StringBuilder cadenaSQL = new StringBuilder("update Producto set codigo='" + this.codigo + "',nombre='" + this.nombre
-                + "',descripcion='" + this.descripcion + "',valorUnitarioCompra='" + this.valorUnitarioCompra + "',valorUnitarioVenta='" + this.valorUnitarioVenta + "', stock='" + this.stock + "',stockMinimo='" + this.stockMinimo + "',stockMaximo='" + this.stockMaximo + "',codigoDeBarras='" + this.codigoDeBarras + "',productosEnDescuento='" + this.productosEnDescuento + "',productosPerecederos='" + this.productosPerecederos + "'where codigo='" + codigo + "'");
+                + "',descripcion='" + this.descripcion + "',valorUnitarioCompra=" + this.valorUnitarioCompra + ",valorUnitarioVenta=" + this.valorUnitarioVenta + ", stock=" + this.stock + ",stockMinimo=" + this.stockMinimo + ",stockMaximo=" + this.stockMaximo + ",codigoDeBarras='" + this.codigoDeBarras + "',productosEnDescuento='" + this.productosEnDescuento + "',productosPerecederos='" + this.productosPerecederos + "'where codigo='" + codigo + "'");
         if (!this.foto.isEmpty()) {
             cadenaSQL.append(", foto='" + this.foto + "'");
         }

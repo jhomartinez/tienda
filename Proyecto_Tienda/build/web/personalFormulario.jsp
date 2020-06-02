@@ -22,20 +22,43 @@
           }
 
 %>
-<h3><%= accion.toUpperCase()%> LISTA DE PERSONAL</h3>
-<form name="formulario" method="post" action="principal.jsp?CONTENIDO=personalActualizar.jsp">
-    <table border="0">
-        <tr><th>Identificacion(*)</th><td><input type="text" name="identificacion" size="50" maxlength="50" value="<%=persona.getIdentificacion() %>" placeholder="Nombre del evento" required></td></tr>    
-        <tr><th>Nombres(*)</th><td><input type="text" name="nombre" value="<%=persona.getNombre()%>" required></td></tr>    
-        <tr><th>Apellidos(*)</th><td><input type="text" name="apellido" value="<%=persona.getApellido()%>" required></td></tr>    
-        <tr><th>Direccion(*)</th><td><input type="text" name="direccion" value="<%=persona.getDireccion()%>" required></td></tr>    
-        <tr><th>Telefono(*)</th><td><input type="telephone" name="telefono" value="<%=persona.getTelefono()%>" required></td></tr>    
-        <tr><th>Correo Electronico</th><td><input type="email" name="email" value="<%=persona.getEmail()%>"></td></tr>    
-        <tr><th>Clave(*)</th><td><input type="password" name="clave" value="<%=persona.getClave()%>" required></td></tr>    
-        <tr><th>Tipo</th><td><input type="text" name="tipo" value="<%=persona.getTipo()%>"></td></tr>    
-    </table>
-     <input type="submit" name="accion" value="<%=accion%>"></input>
-</form>
+<h3><%= accion.toUpperCase()%> <b>LISTA DE PERSONAL</b></h3><br/>
+ <form name="formulario" method="post" action="principal.jsp?CONTENIDO=personalActualizar.jsp">
+     <div class="form-group row">
+        <label for="cedula" >No.Identificación</label>
+        <input class="form-control" type="text" name="identificacion" value="<%=persona.getIdentificacion() %>"placeholder="cedula de ciudadania" required>
+    </div>
+    <div class="form-group row">
+        <label for="nombre">Nombres</label>
+        <input class="form-control" type="text" name="nombre" value="<%=persona.getNombre()%>"placeholder="primer y segundo nombre" required>
+    </div>
+    <div class="form-group row">
+        <label for="apellidos">Apellidos</label>
+        <input class="form-control" type="text" name="apellido" value="<%=persona.getApellido()%> "placeholder="primer y segundo Apellido" required>
+    </div>
+    <div class="form-group row">
+        <label for="direccion" >Direccion</label>
+        <input class="form-control" type="text" name="direccion" value="<%=persona.getDireccion()%>"placeholder="direccion de residencia" required>
+    </div>
+    <div class="form-group row">
+        <label for="telefono" >Telefono</label>
+        <input class="form-control" type="telephone"  name="telefono" value="<%=persona.getTelefono()%>"placeholder="numero de celular" required>
+    </div>
+    <div class="form-group row">
+        <label for="email" >Correo electrónico</label>
+        <input class="form-control" type="email"  name="email" value="<%=persona.getEmail()%>"placeholder="@">
+    </div>
+    <div class="form-group row">
+        <label for="clave" >Clave</label>
+        <input class="form-control" type="password"  name="clave" value="<%=persona.getClave()%>"placeholder="8 caracteres">
+    </div>
+    <div class="form-group row">
+        <label for="tipo" >Tipo</label>
+        <input class="form-control" type="text"  name="tipo" value="<%=persona.getTipo()%>"placeholder="A:administrador, C:cliente, V:vendedor">
+    </div>
+        <input class="btn btn-primary" type="submit" name="accion" value="<%=accion%>" >
+   
+</form> 
 
 <% 
     }
