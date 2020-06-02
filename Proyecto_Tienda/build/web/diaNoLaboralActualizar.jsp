@@ -11,24 +11,21 @@
     if (sesion.getAttribute("usuario") == null) {
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
-        Persona USUARIO = (Persona) sesion.getAttribute("usuario");
+        Persona usuario = (Persona) sesion.getAttribute("usuario");
         DiaNoLaboral diaNoLaboral = new DiaNoLaboral();
         switch (request.getParameter("accion")) {
-            
-            case "Adicionar":
+        case "Adicionar":
          
         diaNoLaboral.setNit(request.getParameter("nit"));
-        String Enero = request.getParameter("01");
-        diaNoLaboral.setMes(request.getParameter("Enero"));
-                
-                  
         diaNoLaboral.setDia(request.getParameter("dia"));
         diaNoLaboral.setMes(request.getParameter("mes"));
         diaNoLaboral.setNombre(request.getParameter("nombre"));
         diaNoLaboral.guardar();
-        break;
+        break;  
+                  
         
-      /*      case "Modificar":
+        
+       case "Modificar":
         diaNoLaboral.setId(request.getParameter("id"));      
         diaNoLaboral.setNit(request.getParameter("nit"));
         diaNoLaboral.setDia(request.getParameter("dia"));
@@ -37,7 +34,7 @@
         diaNoLaboral.modificar();
         break;
         
-           case "Eliminar":
+        case "Eliminar":
         
         diaNoLaboral.setId(request.getParameter("id"));
         diaNoLaboral.eliminar();

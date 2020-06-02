@@ -20,16 +20,17 @@
             while (resultado.next()) {
                 lista += "<tr>";
                 //lista += "<td>" + resultado.getString("nit") + "</td>";
-                if (resultado.getString("mes").equals("01"))
+                if (resultado.getString("mes").equals("01")){
                     lista += "<td>" + "Enero" + "</td>";
-                 else if (resultado.getString("mes").equals("02"))
+               
+                } else if (resultado.getString("mes").equals("02")){
                 lista += "<td>" + "Febrero" + "</td>";
                 
-                
-                /*if (resultado.getString("mes").equals("03")){
+                }else  if (resultado.getString("mes").equals("03")){
                 lista += "<td>" + "Marzo" + "</td>";
+                }
                 
-                if (resultado.getString("mes").equals("04"));
+                /*if (resultado.getString("mes").equals("04"));
                 lista += "<td>" + "Abril" + "</td>";
                 if (resultado.getString("mes").equals("05"));
                 lista += "<td>" + "Mayo" + "</td>";
@@ -54,6 +55,7 @@
                 lista += "<a href='principal.jsp?CONTENIDO=formularioDiaNoLaboral.jsp&accion=Eliminar&id=" + resultado.getString("id") + " '><img src='image/icon_delete.png' style='width: 30px; height: 30px;'/></a> ";
                 lista += "</td>";
                 lista += "</tr>";
+                
                 
             }
         }
