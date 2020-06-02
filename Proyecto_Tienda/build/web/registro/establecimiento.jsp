@@ -70,7 +70,7 @@
                     <input type="checkbox" class="form-check-input" id="confirmarPedido" name="confirmacionPedido" >
                     <label class="form-check-label" for="confirmarPedido"><b>Confirmar Pedido</></b></label>
                 </div><br>
-                <h4><b>DATOS DEL ADMINISTRADOR</b></h4><br>
+<!--                <h4><b>DATOS DEL ADMINISTRADOR</b></h4><br>
                 <table border="0">
                     <tr><th>Identificación(*)</th><td><input type="text" name="cedula" size="30" maxlength="30"  placeholder="1085" required value="<%=usuario.getIdentificacion()%>"></td></tr> 
                     <tr><th>Nombres(*)</th><td><input type="text" name="nombre" size="30" maxlength="30"  placeholder="Nombres Completos" required value="<%=usuario.getNombre()%>"></td></tr> 
@@ -80,13 +80,16 @@
                     <tr><th>Correo Electronico</th><td><input type="text" name="email"  size="30" maxlength="30"  placeholder="email" value="<%=usuario.getEmail()%>"></td></tr>    
                     <tr><th>Clave(*)</th><td><input type="password" name="clave"  size="30" maxlength="30"  placeholder="minimo 6 caracteres" required value="<%=usuario.getClave()%>"></td></tr>   
                     <tr><th>Tipo(*)</th><td><input type="char" name="tipo" size="30" maxlength="30"  placeholder="A administrador" required value="<%=usuario.getTipo()%>"></td></tr>   
-                </table><br>
+                </table><br>-->
+                
+                <% String opcionAdmin = "";
+                    if(usuario.getTipo().equals("A")){
+                    opcionAdmin = "<strong><a class='btn btn-danger' href='principal.jsp?CONTENIDO=personalFormulario.jsp&accion=Modificar&id="+ usuario.getIdentificacion() +"'>Modificar Administrador</a></strong>";
+                }
+                %>
                 <button type="submit" class="btn btn-primary" name="accion" value="<%=accion%>"><%=accion%></button>
+                <%=opcionAdmin %>
             </div>
-        </form>
-        <form action="#" name="formulario" method="post">
-            <input type="hidden" name="cedula" value="<%=usuario.getIdentificacion()%>">
-            <tr><th>Clave(*)</th><td><input type="password" name="clave"  size="30" maxlength="30"  placeholder="minimo 6 caracteres" required value="<%=usuario.getClave()%>"></td></tr>
         </form>
     </body>
 </html>

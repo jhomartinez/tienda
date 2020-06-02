@@ -11,7 +11,18 @@
         response.sendRedirect("index.jsp?mensaje=Acceso no autorizado");
     } else {
         Persona usuario= (Persona) sesion.getAttribute("usuario");
+        String ajusteCabeza ="<div class='card'>"
+                +"<div class='card mx-auto' style='width: 50%;'>"
+                    +"<div class='card-body'>"
+                        +"<center><h4 class='card-title'></h4></center>"
+                        +"<span>Digita la información</span>"
+                        +"<div class='container my-3'>";
+        String ajustePie= "</div>"
+                    +"</div>"
+                +"</div>"
+            +"</div>";
         String accion="Adicionar";
+        String tipoUsuario = "PERSONAL";
         Persona persona=new Persona();
           if(request.getParameter("id")==null){
               //no llega id entonces va a adicionar
@@ -19,10 +30,18 @@
               //llega id entonces va a modificar o eliminar segun la opcion
                accion=request.getParameter("accion");
                persona=new Persona(request.getParameter("id"));
+               if(persona.getTipo().equals("A")){
+                   tipoUsuario = "ADMINISTRADOR";
+               } else if(persona.getTipo().equals("V")){
+                   tipoUsuario = "VENDEDOR";
+               } else if(persona.getTipo().equals("C")){
+                   tipoUsuario = "CLIENTE";
+               }
           }
-
+          
 %>
-<h3><%= accion.toUpperCase()%> <b>LISTA DE PERSONAL</b></h3><br/>
+<h3><%= accion.toUpperCase()+ " " + tipoUsuario%> <b> </b></h3><br/>
+<%=ajusteCabeza%>
  <form name="formulario" method="post" action="principal.jsp?CONTENIDO=personalActualizar.jsp">
      <div class="form-group row">
         <label for="cedula" >No.Identificación</label>
@@ -50,16 +69,21 @@
     </div>
     <div class="form-group row">
         <label for="clave" >Clave</label>
-        <input class="form-control" type="password"  name="clave" value="<%=persona.getClave()%>"placeholder="8 caracteres">
-    </div>
-    <div class="form-group row">
-        <label for="tipo" >Tipo</label>
-        <input class="form-control" type="text"  name="tipo" value="<%=persona.getTipo()%>"placeholder="A:administrador, C:cliente, V:vendedor">
+        <input class="form-control" type="password"  name="clave" value="<%=persona.getClave()%>"placeholder="8 caracteres" id="clave" disabled>
+        <button type="button" class="btn btn-warning" onclick="activar()">Cambiar clave</button>
     </div>
         <input class="btn btn-primary" type="submit" name="accion" value="<%=accion%>" >
    
 </form> 
+<%=ajustePie%>  
 
 <% 
     }
 %>
+<script>
+    function activar(){
+        document.getElementById("clave").disabled = false;
+        document.getElementById("clave").value = "";
+        document.getElementById("clave").placeholder = "Escriba nueva clave";
+    }
+</script>
