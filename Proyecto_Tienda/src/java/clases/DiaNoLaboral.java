@@ -109,13 +109,13 @@ public class DiaNoLaboral {
     
     
     public boolean guardar(){
-        String cadenaSQL="insert into DiaNoLaboral(nit,mes,dia, nombre)values('"+this.nit+"','"+this.mes+
-                "','"+ this.dia+"','"+ this.nombre+"')";
+        String cadenaSQL="insert into DiaNoLaboral(nit,mes,dia, nombre)values('"+this.nit+"',"+this.mes+
+                ","+ this.dia+",'"+ this.nombre+"')";
          return ConectorBD.ejecutarQuery(cadenaSQL);
     }
      public boolean modificar(){
         String cadenaSQL="update DiaNoLaboral set id='"+ this.id +"',nit='"+this.nit
-                +"',mes='"+this.mes+"',dia='"+this.dia +"',nombre='"+this.nombre +"'where id='"+id+"'";
+                +",mes="+this.mes+",dia="+this.dia +"',nombre='"+this.nombre +"'where id='"+id+"'";
         return ConectorBD.ejecutarQuery(cadenaSQL);
 }
      public boolean eliminar(){
